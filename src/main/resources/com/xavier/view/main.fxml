@@ -9,8 +9,8 @@
    <items>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <Button layoutX="7.0" layoutY="14.0" mnemonicParsing="false" onAction="#showSomeButtonView" prefHeight="26.0" prefWidth="189.0" text="CodeGenerator" />
-            <Button layoutX="7.0" layoutY="48.0" mnemonicParsing="false" onAction="#showSomeButtonView" prefHeight="26.0" prefWidth="189.0" text="About Me" />
+            <Button layoutX="7.0" layoutY="14.0" mnemonicParsing="false" onAction="#showCodeGeneratorView" prefHeight="26.0" prefWidth="189.0" text="CodeGenerator" />
+            <Button layoutX="7.0" layoutY="48.0" mnemonicParsing="false" onAction="#showCodeGeneratorView" prefHeight="26.0" prefWidth="189.0" text="About Me" />
          </children>
       </AnchorPane>
       <Pane id="rightPane" fx:id="myDynamicPane" prefHeight="200.0" prefWidth="200.0" />
