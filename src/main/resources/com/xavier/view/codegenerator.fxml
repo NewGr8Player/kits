@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.ComboBox?>
 <Pane fx:controller="com.xavier.controller.CodeGeneratorController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="120.0" layoutY="28.0" text="Input Connection Details">
@@ -19,7 +20,7 @@
       <Label layoutX="120.0" layoutY="130.0" prefHeight="17.0" prefWidth="41.0" text="URL:" />
       <TextField fx:id="urlTextField" layoutX="230.0" layoutY="130.0" promptText="JDBC URL" />
       <Label layoutX="120.0" layoutY="170.0" text="Driver:" />
-      <ChoiceBox fx:id="driverChoiceBox" layoutX="230.0" layoutY="170.0" prefWidth="150.0" />
+      <ComboBox fx:id="driverChoiceBox" layoutX="230.0" layoutY="170.0" prefWidth="150.0" />
       <Label layoutX="120.0" layoutY="210.0" text="Username:" />
       <TextField fx:id="usernameTextField" layoutX="230.0" layoutY="210.0" promptText="Username" />
       <Label layoutX="120.0" layoutY="250.0" text="Password:" />
