@@ -6,7 +6,6 @@ import de.felixroske.jfxsupport.FXMLController;
 import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +28,8 @@ public class CodeGeneratorController {
 	private DBConnectionService dbConnectionService;
 
 	//TODO Unfinished ,to set driver-options here.
-	public void Init(){
-		this.driverChoiceBox.setItems(FXCollections.observableArrayList("MySql","Orancle"));
+	public void Init() {
+		this.driverChoiceBox.setItems(FXCollections.observableArrayList("MySql", "Orancle"));
 	}
 
 	public void findConnectionDetails(final Event event) {
