@@ -6,12 +6,16 @@ import de.felixroske.jfxsupport.FXMLController;
 import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 @FXMLController
-public class CodeGeneratorController {
+public class CodeGeneratorController implements Initializable {
 
 	@FXML
 	TextField connectionNameTextField;
@@ -27,8 +31,8 @@ public class CodeGeneratorController {
 	@Autowired
 	private DBConnectionService dbConnectionService;
 
-	//TODO Unfinished ,to set driver-options here.
-	public void Init() {
+	@Override
+	public void initialize(URL url, ResourceBundle resourceBundle) {
 		this.driverChoiceBox.setItems(FXCollections.observableArrayList("MySql", "Orancle"));
 	}
 
