@@ -3,5 +3,5 @@ spring:
         enabled: false
         
 javafx:
-    title: "小工具集合 - By Xavier 2018-01-15"
+    title: "Kits SpringBoot Based - By Xavier"
     
