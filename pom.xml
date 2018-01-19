@@ -50,10 +50,12 @@
     <!-- End of Add Spring repositories -->
 
     <dependencies>
+        <!-- SpringBoot-Starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+        <!-- SpringBoot-JavaFX -->
         <dependency>
             <groupId>de.roskenet</groupId>
             <artifactId>springboot-javafx-support</artifactId>
