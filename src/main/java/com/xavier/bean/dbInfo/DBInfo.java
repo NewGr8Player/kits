@@ -1,10 +1,10 @@
-package com.xavier.bean.dbConnection;
+package com.xavier.bean.dbInfo;
 
 
 /**
  * <p>数据库连接详情Bean</p>
  */
-public class DBConnection {
+public class DBInfo {
 
 	private String connectName;
 	private String connectURL;
@@ -12,11 +12,11 @@ public class DBConnection {
 	private String username;
 	private String password;
 
-	public DBConnection() {
+	public DBInfo() {
 		super();
 	}
 
-	public DBConnection(String connectName, String connectURL, String driver, String username, String password) {
+	public DBInfo(String connectName, String connectURL, String driver, String username, String password) {
 		super();
 		this.connectName = connectName;
 		this.connectURL = connectURL;
@@ -27,7 +27,7 @@ public class DBConnection {
 
 	@Override
 	public String toString() {
-		return "DBConnection{" +
+		return "DBInfo{" +
 				"connectName='" + connectName + '\'' +
 				", connectURL='" + connectURL + '\'' +
 				", driver='" + driver + '\'' +

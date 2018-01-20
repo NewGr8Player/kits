@@ -6,4 +6,3 @@ javafx:
 logging:
   level:
     root: INFO
-    
