@@ -1,7 +1,7 @@
 package com.xavier.controller;
 
 import com.xavier.bean.dbInfo.DBInfo;
-import com.xavier.service.dbConnection.DBInfoService;
+import com.xavier.service.dbInfo.DBInfoService;
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.collections.FXCollections;
 import javafx.event.Event;
@@ -17,9 +17,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 @FXMLController
-public class CodeGeneratorController implements Initializable {
+public class DBInfoController implements Initializable {
 
-    private static final Log LOGGER = LogFactory.getLog(CodeGeneratorController.class);
+    private static final Log LOGGER = LogFactory.getLog(DBInfoController.class);
 
     @FXML
     TextField connectionNameTextField;/* 连接名称文本框 */

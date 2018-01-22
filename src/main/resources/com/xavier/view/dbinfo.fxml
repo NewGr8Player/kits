@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import javafx.scene.control.ComboBox?>
-<Pane fx:controller="com.xavier.controller.CodeGeneratorController" maxHeight="-Infinity" maxWidth="-Infinity"
+<Pane fx:controller="com.xavier.controller.DBInfoController" maxHeight="-Infinity" maxWidth="-Infinity"
       minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
       xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
     <children>

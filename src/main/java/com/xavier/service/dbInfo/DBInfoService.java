@@ -1,4 +1,4 @@
-package com.xavier.service.dbConnection;
+package com.xavier.service.dbInfo;
 
 import com.xavier.bean.dbInfo.DBInfo;
 
