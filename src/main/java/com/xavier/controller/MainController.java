@@ -1,11 +1,13 @@
 package com.xavier.controller;
 
+import com.xavier.Main;
 import com.xavier.view.DBInfoView;
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -22,9 +24,6 @@ public class MainController implements Initializable {
 	@FXML
 	Pane dynamicPane;/* 主动态面板 */
 
-	@Autowired
-	DBInfoView dbInfoView;/* 数据库连接信息页面 */
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		LOGGER.info("Initialize:Unkonwn");
@@ -37,6 +36,6 @@ public class MainController implements Initializable {
 	 */
 	public void showDBInfoView(final Event event) {
 		LOGGER.info(event.getEventType() + " - " + event.getTarget());
-		//TODO
+		Main.showView(DBInfoView.class, Modality.WINDOW_MODAL);/* 弹出数据库连接详情窗口 */
 	}
 }
