@@ -50,7 +50,6 @@ public class DBInfoServiceImpl implements DBInfoService {
 					System.out.print(rs.getString("password") + "  ");
 				}
 			}
-			System.out.println("ok");
 			rs.close();
 			st.close();
 			con.close();
