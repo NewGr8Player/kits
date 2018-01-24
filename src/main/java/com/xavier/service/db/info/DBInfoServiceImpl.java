@@ -1,6 +1,6 @@
-package com.xavier.service.dbInfo;
+package com.xavier.service.db.info;
 
-import com.xavier.bean.dbInfo.DBInfo;
+import com.xavier.bean.db.info.DBInfo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;

@@ -8,10 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
-import javafx.stage.Stage;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.net.URL;
 import java.util.ResourceBundle;

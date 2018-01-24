@@ -1,8 +1,10 @@
-package com.xavier.bean.dbInfo;
+package com.xavier.bean.db.info;
 
 
 /**
  * <p>数据库连接详情Bean</p>
+ *
+ * @author NewGr8Player
  */
 public class DBInfo {
 

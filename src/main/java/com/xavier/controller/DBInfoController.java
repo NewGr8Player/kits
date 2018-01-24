@@ -1,7 +1,7 @@
 package com.xavier.controller;
 
-import com.xavier.bean.dbInfo.DBInfo;
-import com.xavier.service.dbInfo.DBInfoService;
+import com.xavier.bean.db.info.DBInfo;
+import com.xavier.service.db.info.DBInfoService;
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.collections.FXCollections;
 import javafx.event.Event;

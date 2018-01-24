@@ -1,6 +1,6 @@
-package com.xavier.service.dbInfo;
+package com.xavier.service.db.info;
 
-import com.xavier.bean.dbInfo.DBInfo;
+import com.xavier.bean.db.info.DBInfo;
 
 /**
  * <p>数据库信息Service</p>
