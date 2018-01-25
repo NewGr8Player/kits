@@ -1,6 +1,7 @@
 package com.xavier.service.db.connection;
 
 import com.xavier.bean.db.info.DBInfo;
+import com.xavier.common.db.impl.MySqlDatabase;
 import com.xavier.service.db.connection.util.TypeConverter;
 
 import java.sql.*;
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public class AnalysisDatabaseStructure {
 
-	private Connection conn = null;
+	private Connection connection = null;
 
 	public static final String TABLE_SCHEM = "TABLE_SCHEM";
 	public static final String TABLE_NAME = "TABLE_NAME";
@@ -30,7 +31,7 @@ public class AnalysisDatabaseStructure {
 	public AnalysisDatabaseStructure(DBInfo dbInfo) {
 		try {
 			Class.forName(dbInfo.getDriver()).newInstance();
-			conn = java.sql.DriverManager.getConnection(dbInfo.getConnectURL(), dbInfo.getUsername(), dbInfo.getPassword());
+			connection = java.sql.DriverManager.getConnection(dbInfo.getConnectURL(), dbInfo.getUsername(), dbInfo.getPassword());
 		} catch (InstantiationException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
@@ -42,33 +43,15 @@ public class AnalysisDatabaseStructure {
 		}
 	}
 
-	public void getTblList() {
-		StringBuffer sbTables = new StringBuffer();
-		List<String> tables = new ArrayList<>();
-		sbTables.append("-------------- 数据库中有下列的表 ----------\n");
+	public ResultSet getTblResultSet() {
+		ResultSet tblResultSet;
 		try {
-			DatabaseMetaData dbMetaData = conn.getMetaData();
-			ResultSet rs = dbMetaData.getTables(null, null, null, new String[]{"TABLE","VIEW"});
-			while (rs.next()) {
-				sbTables.append("TABLE_NAME：" + rs.getString(TABLE_NAME) + "\n");
-				sbTables.append("TABLE_TYPE：" + rs.getString(TABLE_TYPE) + "\n");
-				sbTables.append("TYPE_CAT：" + rs.getString(TYPE_CAT) + "\n");
-				sbTables.append("TABLE_SCHEM：" + rs.getString(TABLE_SCHEM) + "\n");
-				sbTables.append("REMARKS：" + rs.getString(REMARKS) + "\n");
-				sbTables.append("TABLE_CAT：" + rs.getString(TABLE_CAT) + "\n");
-				sbTables.append("TYPE_SCHEM：" + rs.getString(TYPE_SCHEM) + "\n");
-				sbTables.append("TYPE_NAME：" + rs.getString(TYPE_NAME) + "\n");
-				sbTables.append("SELF_REFERENCING_COL_NAME：" + rs.getString(SELF_REFERENCING_COL_NAME) + "\n");
-				sbTables.append("REF_GENERATION：" + rs.getString(REF_GENERATION) + "\n");
-				sbTables.append("------------------------------\n");
-				tables.add(rs.getString("TABLE_NAME"));
-			}
+			DatabaseMetaData dbMetaData = connection.getMetaData();
+			return dbMetaData.getTables(null, null, null, new String[]{"TABLE","VIEW"});
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println(tables);
-		System.out.println("---------details------------");
-		System.out.println(sbTables);
+		return null;
 	}
 
 
@@ -76,7 +59,7 @@ public class AnalysisDatabaseStructure {
 		StringBuffer sbCloumns = new StringBuffer();
 		String sql = "select * from " + tblName;
 		try {
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			ResultSetMetaData meta = rs.getMetaData();
 			int columeCount = meta.getColumnCount();
@@ -93,16 +76,20 @@ public class AnalysisDatabaseStructure {
 	}
 
 	public void destroy() {
-		if (conn != null) {
+		if (connection != null) {
 			try {
-				conn.close();
+				connection.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 	}
 
-	public static void main(String[] args) {
+	public Connection getConnection() {
+		return connection;
+	}
+
+	public static void main(String[] args) throws SQLException {
 
 		String connectURL = "jdbc:mysql://127.0.0.1:3306/restful?useUnicode=true&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=round&autoReconnect=true&useSSL=true";
 		String driver = "com.mysql.jdbc.Driver";
@@ -110,7 +97,11 @@ public class AnalysisDatabaseStructure {
 		String password = "root";
 
 		DBInfo dbInfo = new DBInfo("test01", connectURL, driver, username, password);
+
 		AnalysisDatabaseStructure analysisDatabaseStructure = new AnalysisDatabaseStructure(dbInfo);
-		analysisDatabaseStructure.getTblList();
+
+		MySqlDatabase db = new MySqlDatabase(analysisDatabaseStructure.getConnection());
+
+		System.out.println(db.getTable(null,null,"user"));
 	}
 }

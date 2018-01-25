@@ -210,4 +210,23 @@ public class Table implements Serializable {
 	public int getBaseColumnsCount() {
 		return this.baseColumns.size();
 	}
+
+
+	@Override
+	public String toString() {
+		return "Table{" +
+				"tableName='" + tableName + '\'' +
+				", tableType='" + tableType + '\'' +
+				", tableAlias='" + tableAlias + '\'' +
+				", remarks='" + remarks + '\'' +
+				", className='" + className + '\'' +
+				", javaProperty='" + javaProperty + '\'' +
+				", catalog='" + catalog + '\'' +
+				", schema='" + schema + '\'' +
+				", baseColumns=" + baseColumns +
+				", primaryKeys=" + primaryKeys +
+				", importedKeys=" + importedKeys +
+				", exportedKeys=" + exportedKeys +
+				'}';
+	}
 }
