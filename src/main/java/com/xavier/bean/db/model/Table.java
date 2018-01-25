@@ -8,6 +8,8 @@ import java.util.List;
 
 /**
  * <p>表信息Bean</p>
+ *
+ * @author NewGr8Player
  */
 public class Table implements Serializable {
 

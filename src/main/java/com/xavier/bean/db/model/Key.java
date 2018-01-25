@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * <p>键信息Bean</p>
  *
- * @Author NewGr8Player
+ * @author NewGr8Player
  */
 public class Key implements Serializable {
 

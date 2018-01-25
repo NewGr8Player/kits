@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * <p>列处理Bean</p>
  *
- * @Author NewGr8Player
+ * @author NewGr8Player
  */
 public class Column implements Serializable {
 

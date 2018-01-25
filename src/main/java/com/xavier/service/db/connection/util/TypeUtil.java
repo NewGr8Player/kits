@@ -18,6 +18,9 @@ public class TypeUtil {
 	private TypeUtil() {
 	}
 
+	public static final String ORACLE = "oracle";
+	public static final String MYSQL = "mysql";
+
 	private static boolean forceBigDecimals;
 
 	private static Map<Integer, String> typeMap;
