@@ -1,0 +1,22 @@
+[TOC]
+
+---
+
+# 1.简介
+## 1.1. 技术选型
++ 基于`SpringBoot`整合`JavaFX`进行GUI开发。
++ `Maven3`管理项目
++ 模版使用FreeMarker模版引擎生成代码文件
+
+## 1.2. 启动原因
+个人学习与使用需要
+
+# 2. 使用说明
+## 2.1. 图形界面与配置文件
+`Java源码`文件放在`src`目录下
+`XML配置文件`放在`resource`文件夹下
+**注意：Java窗体文件名应为：`XxView.java`(不能为View.java)，`XML配置文件`的文件名应为`xx.xml`(去掉View且完全小写)**
+
+# 3. 目录结构说明
+# 3.1. java代码
+`com.xavier`：所有文件都放在这个包内，SpringBoot启动文件置于该包下根目录。
