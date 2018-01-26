@@ -19,4 +19,4 @@
 
 # 3. 目录结构说明
 # 3.1. java代码
-`com.xavier`：所有文件都放在这个包内，SpringBoot启动文件置于该包下根目录。
+`com.xavier`：所有文件都放在这个包内，SpringBoot启动文类置于该包下根目录。

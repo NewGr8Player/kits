@@ -5,8 +5,6 @@ import com.xavier.common.db.impl.MySqlDatabase;
 import com.xavier.service.db.connection.util.TypeConverter;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <p>测试用</p>
@@ -22,7 +20,7 @@ public class AnalysisDatabaseStructure {
 	public static final String TABLE_TYPE = "TABLE_TYPE";
 	public static final String TYPE_CAT = "TYPE_CAT";
 	public static final String REMARKS = "REMARKS";
-	public static final String TABLE_CAT="TABLE_CAT";
+	public static final String TABLE_CAT = "TABLE_CAT";
 	public static final String TYPE_SCHEM = "TYPE_SCHEM";
 	public static final String TYPE_NAME = "TYPE_NAME";
 	public static final String SELF_REFERENCING_COL_NAME = "SELF_REFERENCING_COL_NAME";
@@ -44,14 +42,14 @@ public class AnalysisDatabaseStructure {
 	}
 
 	public ResultSet getTblResultSet() {
-		ResultSet tblResultSet;
+		ResultSet tblResultSet = null;
 		try {
 			DatabaseMetaData dbMetaData = connection.getMetaData();
-			return dbMetaData.getTables(null, null, null, new String[]{"TABLE","VIEW"});
+			return dbMetaData.getTables(null, null, null, new String[]{"TABLE", "VIEW"});
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return tblResultSet;
 	}
 
 
@@ -102,6 +100,6 @@ public class AnalysisDatabaseStructure {
 
 		MySqlDatabase db = new MySqlDatabase(analysisDatabaseStructure.getConnection());
 
-		System.out.println(db.getTable(null,null,"user"));
+		System.out.println(db.getTable(null, null, "user"));
 	}
 }
