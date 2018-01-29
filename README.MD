@@ -16,7 +16,7 @@ A `SpringBoot` & `JavaFX` practice.
 
 ---
 
-+ [ ] 代码生成器
++ [ ] 代码生成器[重构20%]
 + [ ] MarkDown解释器
 + [ ] Json格式化校验工具
 + [ ] 编写详细设计文档
