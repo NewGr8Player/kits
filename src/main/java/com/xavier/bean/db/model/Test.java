@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 
 public class Test {
 
-    public static final String url = "jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=true&serverTimezone=GMT%2B8";
+    public static final String url = "jdbc:mysql://localhost:3306/restful?characterEncoding=utf8&useSSL=true&serverTimezone=GMT%2B8";
 
     public static void test() {
         Connection conn = null;
@@ -22,9 +22,9 @@ public class Test {
         ResultSet rs = null;
         StringBuffer sb = new StringBuffer();
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(url,"root","root");
-            String sql = "select * from d_test";
+            String sql = "select * from user";
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
             sb.append("package cn.test.entity;\r\n");
