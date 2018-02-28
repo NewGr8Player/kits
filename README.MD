@@ -7,9 +7,9 @@ A `SpringBoot` & `JavaFX` practice.
 + [ ] 使用Kotlin编写部分业务逻辑处理
 
 ***TODO***
-+ [ ] 确定目录结构[75%]
-+ [ ] 确认所需工具类[10%]
-+ [ ] 重新设计数据库连接类提高拓展性
++ [x] 确定目录结构
++ [x] 确认所需工具类
++ [x] 重新设计数据库连接类提高拓展性
 + [ ] 调整字段映射，是否使用拓展文件[5%]
 + [ ] 改造为多模块Maven项目[10%]
 + [ ] 确认存储代码生成器的数据格式与存储方式
@@ -21,6 +21,9 @@ A `SpringBoot` & `JavaFX` practice.
 + [ ] Json格式化校验工具[10%]
 + [ ] 编写详细设计文档
 
+---
+
+- [x] MySql
 
 
 **Going to build a `code generator` and other tools I've write before in the future.**
