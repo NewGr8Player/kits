@@ -1,8 +1,0 @@
-spring:
-  jmx:
-    enabled: false
-logging:
-  level:
-    root: INFO
-javafx:
-  title: "Kits SpringBoot Based - By Xavier"
