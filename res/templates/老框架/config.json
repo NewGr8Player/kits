@@ -8,19 +8,19 @@
       "name": "Bean",
       "description": "Bean文件",
       "fileName":"java/bean/bean.ftl",
-      "targetPackage": "${domainName?uncap_first!}.bean",
+      "targetPackage": ".${domainName?uncap_first!}.bean",
       "targetFileName":"${domainName!}.java"
     },{
       "name": "DAO",
       "description": "DAO接口",
       "fileName":"java/dao/Dao.ftl",
-      "targetPackage": "${domainName?uncap_first!}.dao",
+      "targetPackage": ".${domainName?uncap_first!}.dao",
       "targetFileName":"${domainName!}Dao.java"
     },{
       "name": "DaoImpl",
       "description": "DAO实现",
       "fileName":"java/dao/DaoImpl.ftl",
-      "targetPackage": "${domainName?uncap_first!}.dao",
+      "targetPackage": ".${domainName?uncap_first!}.dao",
       "targetFileName":"${domainName!}DaoImpl.java"
     }
   ]
