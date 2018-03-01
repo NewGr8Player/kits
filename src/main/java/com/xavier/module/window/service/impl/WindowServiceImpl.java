@@ -127,7 +127,7 @@ public class WindowServiceImpl implements WindowService {
             }
 
             public void mouseClicked(MouseEvent e) {
-                Platform.setImplicitExit(false); //多次使用显示和隐藏设置false
+                Platform.setImplicitExit(false); /* 多次使用显示和隐藏设置false */
                 if (e.getClickCount() == 2) {
                     if (stage.isShowing()) {
                         Platform.runLater(() -> stage.hide());

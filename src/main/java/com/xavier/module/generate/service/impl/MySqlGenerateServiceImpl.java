@@ -1,6 +1,5 @@
 package com.xavier.module.generate.service.impl;
 
-
 import com.xavier.module.generate.service.MySqlGenerateService;
 import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
@@ -25,19 +24,12 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.*;
 
-
-/**
- * 代码生成Service
- * Created by Beldon.
- * Copyright (c) 2016/10/14, All Rights Reserved.
- * http://beldon.me
- */
 @SuppressWarnings("Duplicates")
 @Service
 public class MySqlGenerateServiceImpl implements MySqlGenerateService {
 
     @Autowired
-    private freemarker.template.Configuration configuration;
+    private Configuration configuration;
     @Autowired
     private MySqlService mySqlService;
     @Autowired
@@ -46,12 +38,20 @@ public class MySqlGenerateServiceImpl implements MySqlGenerateService {
 
     @Override
     public void generate(GenerateData generateData) throws Exception {
+        Map<String, Object> data = new HashMap<>(); /* 组织数据 */
+
+        data.put("table", generateData.getTable());/* 表信息 */
+        data.put("data", generateData); /* 生成的数据信息 */
+        data.put("url", generateData.getUrl()); /* 生成的数据信息 */
         List<Columns> columns = mySqlService.getAllSchemataTableColumns(generateData.getTable());
         String basePath = generateData.getBasePath(); /* 基本路径 */
         TemplateFtl templateFtl = generateData.getTemplate();
 
         TemplateDetails templateDetails = generateData.getTemplateDetails();
 
+        String domainName = generateData.getDomainName();
+        data.put("domainName", domainName); /* 实体类名称 */
+        templateFtl.setTargetPackage(replace(templateFtl.getTargetPackage(),data));/* 替换路径中的表达式 */
         String templatePath = "/templates/" + templateDetails.getPath() + File.separator + templateFtl.getFileName();
         String dirPath; /* 生成的文件目录 */
         String basePackage = generateData.getBasePackage();
@@ -62,13 +62,11 @@ public class MySqlGenerateServiceImpl implements MySqlGenerateService {
         } else {
             dirPath = basePath + templateFtl.getTargetPath();
         }
-
+        data.put("package", pk);/* 包名 */
         File dir = new File(dirPath);
         if (!dir.exists()) {
             dir.mkdirs();
         }
-
-        String domainName = generateData.getDomainName();
         List<ColumnData> columnDatas = new ArrayList<>();
 
         ColumnData primaryData = new ColumnData();
@@ -92,18 +90,11 @@ public class MySqlGenerateServiceImpl implements MySqlGenerateService {
             }
 
         }
-        /* 组织数据 */
-        Map<String, Object> data = new HashMap<>();
-        data.put("package", pk);
-        data.put("table", generateData.getTable());
-        data.put("domainName", domainName); /* 实体类名称 */
-        data.put("data", generateData); /* 生成的数据信息 */
-        data.put("url", generateData.getUrl()); /* 生成的数据信息 */
+
         data.put("columnDatas", columnDatas); /* 所有字段信息 */
         data.put("importType", importType); /* 所需要导入的包 */
         data.put("primaryData", primaryData); /* 主键 */
         data.put("templateFtl", templateFtl); /* 模板信息 */
-
         templateFtl.setTargetFileName(replace(templateFtl.getTargetFileName(), data));
         data.put("className", templateFtl.getTargetFileName().replaceAll("[.][^.]+$", "")); /* 生成的类的名称 */
 
